@@ -4,7 +4,7 @@
     <script>
         var screenWidth = screen.width;
         var screenHeight = screen.height;
-        if (screenWidth < screenHeight){
+        if (screenWidth < screenHeight) {
             alert("推荐使用横屏/电脑访问此网页")
         }
     </script>
@@ -14,8 +14,9 @@
         }
 
         body {
-            background-image: url(./img/BackGround.png);
-            background-size: 1.5rem;
+            background-image: url(./img/BackGround2.png);
+            background-size: 5rem;
+            animation: scrollBackground 20s linear infinite;
         }
 
         img {
@@ -23,7 +24,14 @@
             display: inline-block;
             /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);*/
         }
-
+        @keyframes scrollBackground {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: -100% 0;
+        }
+        }
         .image-container {
             position: relative;
         }
@@ -85,7 +93,8 @@
             right: -0.2rem;
             z-index: 111;
         }
-        #current-time{
+
+        #current-time {
             padding: 0;
             margin: 0;
             position: absolute;
@@ -98,7 +107,7 @@
     <!-- <p id="current-time"></p> -->
     <img src="./img/img1.png" id="myImage0" onclick="bounceImage()">
     <img src="./img/img2.png" id="myImage1" onclick="bounceImage1()">
-    <div id="myImage2"><img src="./img/img3.png" onclick="bounceImage2()">
+    <div id="myImage2"><img id="Image2Inner" src="./img/img3.png" onclick="bounceImage2()">
         <div id="image1fix" onclick="bounceImage1(),bounceImage1fix()"></div>
     </div>
     <img src="./img/img4.png" id="myImage3" onclick="bounceImage3()">
@@ -143,5 +152,24 @@
                 image.classList.remove("bounce");
             }, 1000);
         }
+    </script>
+    <script>
+        document.addEventListener('mouseover', function (event) {
+            var hoveredElement = event.target;
+            // 执行你想要的操作，比如打印元素的标签名
+            console.log('鼠标悬停在元素上: ', hoveredElement.id);
+            if (hoveredElement.id=="myImage3"){
+                bounceImage3()
+            }
+            if (hoveredElement.id=="Image2Inner"){
+                bounceImage2()
+            }
+            if (hoveredElement.id=="myImage1" || hoveredElement.id=="image1fix"){
+                bounceImage1()
+            }
+            if (hoveredElement.id=="myImage0"){
+                bounceImage()
+            }
+        });
     </script>
 </body>
