@@ -8,102 +8,11 @@
             alert("推荐使用横屏/电脑访问此网页")
         }
     </script>
-    <style>
-        * {
-            font-size: calc(5vw);
-        }
-
-        body {
-            background-image: url(./img/BackGround2.png);
-            background-size: 5rem;
-            animation: scrollBackground 20s linear infinite;
-        }
-
-        img {
-            height: 5rem;
-            display: inline-block;
-            /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);*/
-        }
-        @keyframes scrollBackground {
-        0% {
-            background-position: 0 0;
-        }
-        100% {
-            background-position: -100% 0;
-        }
-        }
-        .image-container {
-            position: relative;
-        }
-
-        #myImage0,
-        #myImage1,
-        #myImage2,
-        #myImage3 {
-            transition: transform 0.3s ease;
-            position: absolute;
-            top: calc(50vh - 2.7rem);
-        }
-
-        .bounce {
-            animation: bounceAnimation 1s infinite;
-        }
-
-        #myImage0 {
-            left: calc(50vw - 1.3rem - 1.2rem)
-        }
-
-        #myImage1 {
-            left: calc(50vw + 3.7rem - 1.2rem);
-        }
-
-        #myImage2 {
-            left: calc(50vw + 1.1rem - 1.2rem);
-        }
-
-        #myImage3 {
-            left: calc(50vw - 3.95rem - 1.2rem);
-        }
-
-        @keyframes bounceAnimation {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-1rem);
-            }
-
-            60% {
-                transform: translateY(-0.5rem);
-            }
-        }
-
-        #image1fix {
-            position: absolute;
-            /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);*/
-            width: 1rem;
-            height: 2rem;
-            top: 0;
-            right: -0.2rem;
-            z-index: 111;
-        }
-
-        #current-time {
-            padding: 0;
-            margin: 0;
-            position: absolute;
-            user-select: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    <img src="./img/LOGO.png" id="LOGO" onclick="applyRandomAnimation(this)">
     <!-- <p id="current-time"></p> -->
     <img src="./img/img1.png" id="myImage0" onclick="bounceImage()">
     <img src="./img/img2.png" id="myImage1" onclick="bounceImage1()">
@@ -111,64 +20,24 @@
         <div id="image1fix" onclick="bounceImage1(),bounceImage1fix()"></div>
     </div>
     <img src="./img/img4.png" id="myImage3" onclick="bounceImage3()">
-    <script>
-        function bounceImage() {
-            var image = document.getElementById("myImage0");
-            image.classList.add("bounce");
-
-            setTimeout(function () {
-                image.classList.remove("bounce");
-            }, 1000);
-        }
-        function bounceImage1() {
-            var image = document.getElementById("myImage1");
-            image.classList.add("bounce");
-
-            setTimeout(function () {
-                image.classList.remove("bounce");
-            }, 1000);
-        }
-        function bounceImage2() {
-            var image = document.getElementById("myImage2");
-            image.classList.add("bounce");
-
-            setTimeout(function () {
-                image.classList.remove("bounce");
-            }, 1000);
-        }
-        function bounceImage3() {
-            var image = document.getElementById("myImage3");
-            image.classList.add("bounce");
-
-            setTimeout(function () {
-                image.classList.remove("bounce");
-            }, 1000);
-        }
-        function bounceImage1fix() {
-            var image = document.getElementById("image1fix");
-            image.classList.add("bounce");
-
-            setTimeout(function () {
-                image.classList.remove("bounce");
-            }, 1000);
-        }
-    </script>
+    <script src="./js/javascript.js"></script>
     <script>
         document.addEventListener('mouseover', function (event) {
             var hoveredElement = event.target;
             //console.log('鼠标悬停在元素上: ', hoveredElement.id);
-            if (hoveredElement.id=="myImage3"){
+            if (hoveredElement.id == "myImage3") {
                 bounceImage3()
             }
-            if (hoveredElement.id=="Image2Inner"){
+            if (hoveredElement.id == "Image2Inner") {
                 bounceImage2()
             }
-            if (hoveredElement.id=="myImage1" || hoveredElement.id=="image1fix"){
+            if (hoveredElement.id == "myImage1" || hoveredElement.id == "image1fix") {
                 bounceImage1()
             }
-            if (hoveredElement.id=="myImage0"){
+            if (hoveredElement.id == "myImage0") {
                 bounceImage()
             }
         });
     </script>
+    <script src="./js/idleTime.js"></script>
 </body>

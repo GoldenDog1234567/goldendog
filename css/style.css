@@ -1,0 +1,171 @@
+* {
+    font-size: calc(5vw);
+    user-select: none;
+}
+
+body {
+    background-image: url(../img/BackGround2.png);
+    background-size: 5rem;
+    animation: scrollBackground 20s linear infinite;
+    overflow: hidden;
+}
+
+img {
+    height: 5rem;
+    display: inline-block;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);*/
+}
+
+@keyframes scrollBackground {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
+}
+
+.image-container {
+    position: relative;
+}
+
+#myImage0,
+#myImage1,
+#myImage2,
+#myImage3 {
+    transition: transform 0.3s ease;
+    position: absolute;
+    top: calc(50vh - 2.7rem);
+}
+
+.bounce {
+    animation: bounceAnimation 1s infinite;
+}
+
+#myImage0 {
+    left: calc(50vw - 1.3rem - 1.2rem)
+}
+
+#myImage1 {
+    left: calc(50vw + 3.7rem - 1.2rem);
+}
+
+#myImage2 {
+    left: calc(50vw + 1.1rem - 1.2rem);
+}
+
+#myImage3 {
+    left: calc(50vw - 3.95rem - 1.2rem);
+}
+
+@keyframes bounceAnimation {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-1rem);
+    }
+
+    60% {
+        transform: translateY(-0.5rem);
+    }
+}
+
+#image1fix {
+    position: absolute;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);*/
+    width: 1rem;
+    height: 2rem;
+    top: 0;
+    right: -0.2rem;
+    z-index: 111;
+}
+
+#current-time {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    user-select: none;
+}
+
+#LOGO {
+    height: 2rem;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+}
+
+@keyframes logoRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes shakeAndBreathe {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    10% {
+        transform: rotate(5deg) scale(1.05);
+    }
+
+    20% {
+        transform: rotate(-5deg) scale(1);
+    }
+
+    30% {
+        transform: rotate(4deg) scale(1);
+    }
+
+    40% {
+        transform: rotate(-4deg) scale(0.95);
+    }
+
+    50% {
+        transform: rotate(0deg) scale(0.98);
+    }
+
+    60% {
+        transform: rotate(-3deg) scale(1);
+    }
+
+    70% {
+        transform: rotate(3deg) scale(1.02);
+    }
+
+    80% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    90% {
+        transform: rotate(-2deg) scale(0.99);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
